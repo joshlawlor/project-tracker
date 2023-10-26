@@ -1,14 +1,12 @@
 'use client';
 import styled from 'styled-components';
-
 export default function page() {
   return (
-    <HomeWrapper>Home Page</HomeWrapper>
+    <RegisterWrapper>Register Page</RegisterWrapper>
   )
 }
 
-
-const HomeWrapper = styled.div`
+const RegisterWrapper = styled.div`
     height: 100vh;
-
+    y-overflow: hidden;
 `
