@@ -48,6 +48,8 @@ const LandingWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #323333;
+  color: white;
 `;
 
 const Logo = styled.img``;
@@ -64,7 +66,7 @@ const Header = styled.h1`
   letter-spacing: 0em;
   text-align: center;
   padding-bottom: 30px;
-  opacity: 40%;
+  color: #ffffff
 `;
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -93,7 +95,7 @@ background-clip: content-box, border-box;
 }
 `;
 const LoginIcon = styled.img`
-  margin: none;
+  margin-left: 40%;
 `;
 const LoginButton = styled.button`
   cursor: pointer;
@@ -110,10 +112,12 @@ const LoginButton = styled.button`
   background-origin: border-box;
   background-clip: content-box, border-box;
   &:hover {
-    background: #b3e0b3;
+    background: #B6B6B6;
   }
 `;
-const RegisterIcon = styled.img``;
+const RegisterIcon = styled.img`
+margin-left: 42%;
+`;
 const ButtonTitle = styled.h1`
   width: 120px
   height: 24.92px;
@@ -123,7 +127,7 @@ const ButtonTitle = styled.h1`
   size: 18px;
   line-height: 21.6px;
   font-family:'lato';
-  color: #e0b3b3;
+  color: #c4c0bd;
 `;
 const H3 = styled.h3`
   width: 187px
@@ -134,7 +138,7 @@ const H3 = styled.h3`
   weight: 500;
   size: 14px;
   line-height: 29px;
-  color: #e0b3b3;
+  color: #ebe6e3;
 `;
 
 const GoogleWrapper = styled.div`
