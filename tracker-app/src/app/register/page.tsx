@@ -1,43 +1,43 @@
 'use client';
+import Link from 'next/link'
 import styled from 'styled-components';
 export default function page() {
   return (
     <RegisterPage>
-      <RegisterLogo src={registerIcon} alt="logo" />
+      <RegisterLogo src='/registerIcon.png' alt="logo" />
       <Header>Welcome, glad to have you!</Header>
       <div className="form-container">
-        <RegisterForm onSubmit={registerUser}>
+        <RegisterForm >
           <InputStyler
             type="email"
             placeholder="Enter your email"
             required
-            onChange={handleEmailChange}
+            
           />
           <InputStyler
             type="username"
             placeholder="Enter your preferred username"
             required
-            onChange={handleUserNameChange}
           />
           <InputStyler
             type="password"
             required
             placeholder="Enter your password"
-            onChange={handlePasswordChange}
           />
           <InputStyler
             type="password"
             required
             placeholder="Confirm your password"
-            onChange={handleConfirmPasswordChange}
           />
           <ButtonContainer>
             <RegisterButton type="submit">Register</RegisterButton>
           </ButtonContainer>
         </RegisterForm>
-        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+        {/* {errorMessage && <p className="errorMessage">{errorMessage}</p>} */}
       </div>
-      <BackButton onClick={() => navigate("/")}>Back</BackButton>
+      <Link href='/'>
+      <BackButton>Back</BackButton>
+      </Link>
     </RegisterPage>
   );
 };
