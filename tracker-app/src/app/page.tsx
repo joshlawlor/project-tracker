@@ -97,8 +97,9 @@ background-clip: content-box, border-box;
 }
 `;
 const LoginIcon = styled.img`
-  margin-left: 42.5%;
-  margin-bottom: .5%;
+  margin-left: 40.5%;
+  min-height: 30%;
+  margin-bottom: 1px;
 `;
 const LoginButton = styled.button`
   cursor: pointer;
@@ -120,6 +121,8 @@ const LoginButton = styled.button`
 `;
 const RegisterIcon = styled.img`
 margin-left: 42%;
+margin-bottom: .5%;
+
 `;
 const ButtonTitle = styled.h1`
   width: 120px
@@ -129,7 +132,6 @@ const ButtonTitle = styled.h1`
   weight: 700;
   size: 18px;
   line-height: 21.6px;
-  font-family:'lato';
   color: black;
 `;
 const H3 = styled.h3`
@@ -137,7 +139,6 @@ const H3 = styled.h3`
   height: 32.84px;
   top: 9029.81px;
   left: -9893px;
-  font-family:'lato';
   weight: 500;
   size: 14px;
   line-height: 29px;
@@ -158,7 +159,6 @@ width: 187px
 height: 32.84px;
 top: 9029.81px;
 left: -9893px;
-font-family:'lato';
 weight: 500;
 size: 14px;
 line-height: 29px;
