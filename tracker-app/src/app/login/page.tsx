@@ -1,13 +1,132 @@
 'use client';
 import styled from 'styled-components';
-
-export default function login() {
+import Link from 'next/link';
+export default function Login() {
   return (
-    <LoginWrapper>Login Page</LoginWrapper>
-  )
-}
+    <LoginPage>
+      <LoginLogo src='/loginIcon.png' alt="logo" />
+      <Header>Welcome back!</Header>
+      <div className="form-container">
+        <LoginForm>
+          <InputStyler
+            type="email"
+            placeholder="Enter your email"
+            required
+          />
+          <InputStyler
+            type="password"
+            required
+            placeholder="Enter your password"
+          />
+          <ButtonContainer>
+            <LoginButton type="submit">Log In</LoginButton>
+          </ButtonContainer>
+        </LoginForm>
+      </div>
+      <ForgotPasswordLink onClick={() => navigate("/forgot-password")}>
+        Forgot Password?
+      </ForgotPasswordLink>
+      <Link href='/'>
+        <BackButton>Back</BackButton>
+      </Link>
+    </LoginPage>
+  );
+};
 
-const LoginWrapper = styled.div`
-    height: 100vh;
 
-`
+const LoginPage = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const LoginLogo = styled.img`
+  width: 100px;
+  height: 100px;
+`;
+
+const LoginButton = styled.button`
+  box-sizing: border-box;
+  width: 311px;
+  height: 44.91px;
+  border-radius: 10px;
+  border: 1px solid #e9ecff;
+  padding: 10px, 40px, 10px, 40px;
+  gap: 10px;
+  font-family: Lato;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 27px;
+  letter-spacing: 0em;
+  background: #e0b3b3;
+  cursor: pointer;
+  &:hover {
+    background: #b3e0b3;
+  }
+`;
+
+const Header = styled.h1`
+  width: 311px;
+  height: 33px;
+  top: 9375px;
+  left: -8372px;
+  opacity: 40%;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.8px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 25px;
+`;
+
+const LoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const InputStyler = styled.input`
+  box-sizing: border-box;
+  width: 311px;
+  height: 44.91px;
+  top: 9431px;
+  left: -8372px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px #e0b3b3;
+  margin-bottom: 10px;
+  font-family: "Exo", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23.92px;
+  padding-left: 15px;
+`;
+
+const ButtonContainer = styled.div`
+  margin-top: 10px;
+  margin-bottom: 15px;
+`;
+const ForgotPasswordLink = styled.button`
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: #334e68;
+  cursor: pointer;
+  cursor: pointer;
+`;
+const BackButton = styled.button`
+  margin-top: 25px;
+  background: none;
+  border: none;
+  font-family: Lato;
+  cursor: pointer;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: heavy;
+  color: #a6a6a6;
+`;

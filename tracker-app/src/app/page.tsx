@@ -1,27 +1,30 @@
 'use client';
+import { GlobalStyles } from './styles/GlobalStyles';
 import Link from 'next/link'
 import styled from 'styled-components';
 export default function Landing() {
+ 
 
   return (
     <LandingWrapper>
+      <GlobalStyles />
       <Logo src='/communityIcon.png' alt="logo" />
-      <Header>Welcome! Sign in to your account.</Header>
+      <Header >Welcome! </Header>
       <ButtonsWrapper>
 
         <Link href='/login'>
           <LoginButton >
-            <LoginIcon src='/chatGif.gif' alt="talenticon" />
+            <LoginIcon src='/teamworkIcon.gif' alt="talenticon" />
             <div>
               <ButtonTitle>Log in</ButtonTitle>
-              <H3>Start chatting!</H3>
+              <H3>Start collaborating!</H3>
             </div>
           </LoginButton>
         </Link>
 
       <Link href='/register'>
         <RegisterButton>
-          <RegisterIcon src='/starGif.gif' alt="talenticon" />
+          <RegisterIcon src='/registerIcon.gif' alt="talenticon" />
           <div>
             <ButtonTitle>Register</ButtonTitle>
             <H3>Join our community!</H3>
@@ -48,23 +51,24 @@ const LandingWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #323333;
+  color: white;
 `;
 
 const Logo = styled.img``;
 
 const Header = styled.h1`
-  width: 298px;
-  height: 14.03px;
+  width: 1000px;
+  height: 35.03px;
   top: 8833.28px;
   left: -10137px;
-  font-family: "Lato";
-  font-size: 20px;
+  font-size: 35px;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0em;
+  padding: 15px;
   text-align: center;
-  padding-bottom: 30px;
-  opacity: 40%;
+  color: #ffffff
 `;
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -89,11 +93,13 @@ background: linear-gradient(0deg, #ffffff, #ffffff),
 background-origin: border-box;
 background-clip: content-box, border-box;
 &:hover {
-  background: #b3e0b3;
+  background: #E1E5E5;
 }
 `;
 const LoginIcon = styled.img`
-  margin: none;
+  margin-left: 40.5%;
+  min-height: 30%;
+  margin-bottom: 1px;
 `;
 const LoginButton = styled.button`
   cursor: pointer;
@@ -110,10 +116,14 @@ const LoginButton = styled.button`
   background-origin: border-box;
   background-clip: content-box, border-box;
   &:hover {
-    background: #b3e0b3;
+    background: #E1E5E5;
   }
 `;
-const RegisterIcon = styled.img``;
+const RegisterIcon = styled.img`
+margin-left: 42%;
+margin-bottom: .5%;
+
+`;
 const ButtonTitle = styled.h1`
   width: 120px
   height: 24.92px;
@@ -122,19 +132,17 @@ const ButtonTitle = styled.h1`
   weight: 700;
   size: 18px;
   line-height: 21.6px;
-  font-family:'lato';
-  color: #e0b3b3;
+  color: black;
 `;
 const H3 = styled.h3`
   width: 187px
   height: 32.84px;
   top: 9029.81px;
   left: -9893px;
-  font-family:'lato';
   weight: 500;
   size: 14px;
   line-height: 29px;
-  color: #e0b3b3;
+  color: black;
 `;
 
 const GoogleWrapper = styled.div`
@@ -151,11 +159,10 @@ width: 187px
 height: 32.84px;
 top: 9029.81px;
 left: -9893px;
-font-family:'lato';
 weight: 500;
 size: 14px;
 line-height: 29px;
-color: #e0b3b3;
+color: black;
 `;
 
 const GoogleButton = styled.button`
@@ -176,6 +183,6 @@ const GoogleButton = styled.button`
   background-origin: border-box;
   background-clip: content-box, border-box;
   &:hover {
-    background: #b3e0b3;
+    background: #E1E5E5;
   }
 `;
