@@ -12,7 +12,7 @@ export default function page() {
             type="email"
             placeholder="Enter your email"
             required
-            
+
           />
           <InputStyler
             type="username"
@@ -36,7 +36,7 @@ export default function page() {
         {/* {errorMessage && <p className="errorMessage">{errorMessage}</p>} */}
       </div>
       <Link href='/'>
-      <BackButton>Back</BackButton>
+        <BackButton>Back</BackButton>
       </Link>
     </RegisterPage>
   );
