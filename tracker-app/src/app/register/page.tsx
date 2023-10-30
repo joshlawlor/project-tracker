@@ -54,6 +54,7 @@ const RegisterPage = styled.div`
 const RegisterLogo = styled.img`
   width: 100px;
   height: 100px;
+  margin-left: 10px;
 `;
 
 const RegisterButton = styled.button`
@@ -64,15 +65,15 @@ const RegisterButton = styled.button`
   border: 1px solid #e9ecff;
   padding: 10px, 40px, 10px, 40px;
   gap: 10px;
-  font-family: Lato;
   font-size: 20px;
   font-weight: 500;
   line-height: 27px;
+  color: white;
   letter-spacing: 0em;
-  background: #e0b3b3;
+  background: #a8a6a5;
   cursor: pointer;
   &:hover {
-    background: #b3e0b3;
+    background: #323333;
   }
 `;
 
@@ -107,7 +108,7 @@ const InputStyler = styled.input`
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 10px;
-  box-shadow: 0px 4px 4px 0px #e0b3b3;
+  box-shadow: 0px 4px 4px 0px #323333;
   margin-bottom: 10px;
   font-family: "Exo", sans-serif;
   font-weight: 400;
