@@ -1,7 +1,40 @@
 'use client';
+import React, { useState } from "react";
 import styled from 'styled-components';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation'
+
+// FIREBASE IMPORTS
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { db } from "../firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
+
 export default function Login() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const userCollectionRef = collection(db, "users");
+
+  const loginUser = async () => {
+
+  }
+
+  let handleEmailChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  let handlePasswordChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+
+
+
+
+
+
   return (
     <LoginPage>
       <LoginLogo src='/loginIcon.png' alt="logo" />
@@ -12,16 +45,20 @@ export default function Login() {
             type="email"
             placeholder="Enter your email"
             required
+            onChange={handleEmailChange}
           />
           <InputStyler
             type="password"
             required
             placeholder="Enter your password"
+            onChange={handlePasswordChange}
           />
           <ButtonContainer>
             <LoginButton type="submit">Log In</LoginButton>
           </ButtonContainer>
         </LoginForm>
+        {errorMessage !== "" && <p className="errorMessage">{errorMessage}</p>}
+
       </div>
       <Link href='/forgotPassword'>
         <ForgotPasswordLink>
