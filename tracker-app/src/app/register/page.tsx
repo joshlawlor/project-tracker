@@ -85,7 +85,7 @@ const Header = styled.h1`
   opacity: 40%;
   font-family: "Lato";
   font-weight: 400;
-  font-size: 14px;
+  font-size: 24px;
   line-height: 16.8px;
   text-align: center;
   margin-top: 20px;

@@ -23,9 +23,12 @@ export default function Login() {
           </ButtonContainer>
         </LoginForm>
       </div>
-      <ForgotPasswordLink onClick={() => navigate("/forgot-password")}>
-        Forgot Password?
-      </ForgotPasswordLink>
+      <Link href='/forgotPassword'>
+        <ForgotPasswordLink>
+          Forgot Password?
+        </ForgotPasswordLink>
+      </Link>
+
       <Link href='/'>
         <BackButton>Back</BackButton>
       </Link>
@@ -55,15 +58,15 @@ const LoginButton = styled.button`
   border: 1px solid #e9ecff;
   padding: 10px, 40px, 10px, 40px;
   gap: 10px;
-  font-family: Lato;
+  color: white;
   font-size: 20px;
   font-weight: 500;
   line-height: 27px;
   letter-spacing: 0em;
-  background: #e0b3b3;
+  background: #a8a6a5;
   cursor: pointer;
   &:hover {
-    background: #b3e0b3;
+    background: #323333;
   }
 `;
 
@@ -75,7 +78,7 @@ const Header = styled.h1`
   opacity: 40%;
   font-family: "Lato";
   font-weight: 400;
-  font-size: 14px;
+  font-size: 24px;
   line-height: 16.8px;
   text-align: center;
   margin-top: 20px;
