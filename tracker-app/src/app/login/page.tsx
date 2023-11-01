@@ -29,7 +29,7 @@ export default function Login() {
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        router.push('/');
+        router.push('/home');
       })
       .catch((error) => {
         setErrorMessage(error.message);
