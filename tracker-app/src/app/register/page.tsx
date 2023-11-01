@@ -118,7 +118,7 @@ export default function Register() {
     <RegisterPage>
       <RegisterLogo src='/registerIcon.png' alt="logo" />
       <Header>Welcome, glad to have you!</Header>
-      <div className="form-container">
+      <div>
         <RegisterForm onSubmit={registerUser}>
           <InputStyler
             type="email"
@@ -148,7 +148,7 @@ export default function Register() {
             <RegisterButton type="submit">Register</RegisterButton>
           </ButtonContainer>
         </RegisterForm>
-        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+        {errorMessage && <p>{errorMessage}</p>}
       </div>
       <Link href='/'>
         <BackButton>Back</BackButton>

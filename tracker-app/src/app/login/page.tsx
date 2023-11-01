@@ -5,9 +5,6 @@ import { useRouter } from "next/navigation";
 // FIREBASE IMPORTS
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { db } from "../firebase";
-import { collection } from "firebase/firestore";
-
 //STYLING
 import styled from 'styled-components';
 
@@ -57,7 +54,7 @@ export default function Login() {
     <LoginPage>
       <LoginLogo src='/loginIcon.png' alt="logo" />
       <Header>Welcome back!</Header>
-      <div className="form-container">
+      <div>
         <LoginForm onSubmit={loginUser}>
           <InputStyler
             type="email"
@@ -75,7 +72,7 @@ export default function Login() {
             <LoginButton type="submit">Log In</LoginButton>
           </ButtonContainer>
         </LoginForm>
-        {errorMessage !== "" && <p className="errorMessage">{errorMessage}</p>}
+        {errorMessage !== "" && <p>{errorMessage}</p>}
 
       </div>
       <Link href='/forgotPassword'>
