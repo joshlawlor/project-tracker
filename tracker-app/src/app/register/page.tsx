@@ -57,6 +57,31 @@ export default function Register() {
     setErrorMessage("");
 
     const userCollectionRef = collection(db, "users");
+    // Check for duplicate username
+    const duplicateUsernameQuery = query(
+      userCollectionRef,
+      where("username", "==", username),
+      where("provider", "==", "email")
+    );
+    const usernameQuerySnapshot = await getDocs(duplicateUsernameQuery);
+
+    if (!usernameQuerySnapshot.empty) {
+      setErrorMessage("Username is already taken.");
+      return;
+    }
+
+    // Check for duplicate email
+    const duplicateEmailQuery = query(
+      userCollectionRef,
+      where("email", "==", email)
+    );
+    const emailQuerySnapshot = await getDocs(duplicateEmailQuery);
+
+    if (!emailQuerySnapshot.empty) {
+      setErrorMessage("Email is already registered.");
+      console.log(emailQuerySnapshot)
+      return;
+    }
 
     try {
       const userCredential = await createUserWithEmailAndPassword(
