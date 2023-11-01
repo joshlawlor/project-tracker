@@ -1,7 +1,22 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link'
 import styled from 'styled-components';
-export default function page() {
+export default function Register() {
+  const [email, setEmail] = useState("");
+
+  let handleEmailChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  }
+
+
+
+
+
+
+
+
+
   return (
     <RegisterPage>
       <RegisterLogo src='/registerIcon.png' alt="logo" />
@@ -12,7 +27,7 @@ export default function page() {
             type="email"
             placeholder="Enter your email"
             required
-
+            onChange={handleEmailChange}
           />
           <InputStyler
             type="username"
