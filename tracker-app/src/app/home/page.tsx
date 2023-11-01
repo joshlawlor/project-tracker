@@ -2,15 +2,19 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation';
 import styled from "styled-components";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth, firebaseInitialized } from '../firebase';
 export default function Home() {
-    const auth = getAuth();
     const router = useRouter();
     const [authState, setAuthState] = useState(false);
 
     // AUTH STATE USEFFECT, CHECKS IF USER IS AUTHENTICATED //
     useEffect(() => {
+        // Check if firebase app was initialized before component loads
+        if (!firebaseInitialized) {
+            return;
+        }
+
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 console.log("User authenticated", user.displayName);
