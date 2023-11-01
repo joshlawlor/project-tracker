@@ -1,39 +1,154 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link'
+import { useRouter } from "next/navigation";
+
+import { getAuth, updateProfile } from "firebase/auth";
+import { db } from "../firebase";
+import {
+  collection,
+  serverTimestamp,
+  doc,
+  setDoc,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import styled from 'styled-components';
-export default function page() {
+export default function Register() {
+  const auth = getAuth();
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  let handleEmailChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  }
+
+  let handleUserNameChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
+
+  let handlePasswordChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  let handleConfirmPasswordChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const registerUser = async (e: any) => {
+    e.preventDefault()
+
+    if (
+      email.trim() === "" ||
+      username.trim() === "" ||
+      password.trim() === "" ||
+      confirmPassword.trim() === ""
+    ) {
+      setErrorMessage("Both email and password fields are required!");
+      return;
+    } else if (confirmPassword.trim() !== password.trim()) {
+      setErrorMessage("Passwords do not match!");
+      return;
+    }
+    setErrorMessage("");
+
+    const userCollectionRef = collection(db, "users");
+    // Check for duplicate username
+    const duplicateUsernameQuery = query(
+      userCollectionRef,
+      where("username", "==", username),
+      where("provider", "==", "email")
+    );
+    const usernameQuerySnapshot = await getDocs(duplicateUsernameQuery);
+
+    if (!usernameQuerySnapshot.empty) {
+      setErrorMessage("Username is already taken.");
+      return;
+    }
+
+    // Check for duplicate email
+    const duplicateEmailQuery = query(
+      userCollectionRef,
+      where("email", "==", email)
+    );
+    const emailQuerySnapshot = await getDocs(duplicateEmailQuery);
+
+    if (!emailQuerySnapshot.empty) {
+      setErrorMessage("Email is already registered.");
+      console.log(emailQuerySnapshot)
+      return;
+    }
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      const authenticatedUser = userCredential.user;
+
+      await updateProfile(authenticatedUser, {
+        displayName: username,
+      });
+
+      console.log("PROFILE UPDATED TO INCLUDE DISPLAYNAME");
+
+      const userDocRef = doc(userCollectionRef);
+      await setDoc(userDocRef, {
+        username: username,
+        email: email,
+        provider: "email",
+        timestamp: serverTimestamp(),
+      });
+      console.log("User document created.");
+      router.push('/home')
+    } catch (error: any) {
+      setErrorMessage(error.message);
+      console.log(errorMessage);
+    }
+  }
+
   return (
     <RegisterPage>
       <RegisterLogo src='/registerIcon.png' alt="logo" />
       <Header>Welcome, glad to have you!</Header>
-      <div className="form-container">
-        <RegisterForm >
+      <div>
+        <RegisterForm onSubmit={registerUser}>
           <InputStyler
             type="email"
             placeholder="Enter your email"
             required
-
+            onChange={handleEmailChange}
           />
           <InputStyler
             type="username"
             placeholder="Enter your preferred username"
             required
+            onChange={handleUserNameChange}
           />
           <InputStyler
             type="password"
-            required
             placeholder="Enter your password"
+            required
+            onChange={handlePasswordChange}
           />
           <InputStyler
             type="password"
             required
             placeholder="Confirm your password"
+            onChange={handleConfirmPasswordChange}
           />
           <ButtonContainer>
             <RegisterButton type="submit">Register</RegisterButton>
           </ButtonContainer>
         </RegisterForm>
-        {/* {errorMessage && <p className="errorMessage">{errorMessage}</p>} */}
+        {errorMessage && <p>{errorMessage}</p>}
       </div>
       <Link href='/'>
         <BackButton>Back</BackButton>
