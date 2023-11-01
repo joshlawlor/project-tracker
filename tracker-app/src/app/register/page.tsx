@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link'
+import { useRouter } from "next/navigation";
 
 import { getAuth, updateProfile } from "firebase/auth";
 import { db } from "../firebase";
@@ -17,6 +18,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import styled from 'styled-components';
 export default function Register() {
   const auth = getAuth();
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -105,7 +107,7 @@ export default function Register() {
         timestamp: serverTimestamp(),
       });
       console.log("User document created.");
-
+      router.push('/home')
     } catch (error: any) {
       setErrorMessage(error.message);
       console.log(errorMessage);
