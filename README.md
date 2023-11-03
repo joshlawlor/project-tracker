@@ -43,14 +43,14 @@ SprintSync is a task-tracking application designed to streamline group project o
 
 1. **Clone the repository:**
 
-   shell
+   ```shell
    git clone https://github.com/yourusername/SprintSync.git
-
+```
 2. **Install project dependencies:**
 
-   shell
+   ```shell
    npm install
-
+```
 3. **Configure Firebase:**
 
    - Create a Firebase project on the [Firebase Console](https://console.firebase.google.com/).
