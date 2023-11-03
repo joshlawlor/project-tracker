@@ -65,12 +65,12 @@ SprintSync is a task-tracking application designed to streamline group project o
      NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-storage-bucket
      NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
      NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
-```
+   ```
 4. **Start the development server:**
 
    ```shell
    npm run dev
-```
+   ```
 5. **Access the application:**
 
    Open your web browser and access the application at http://localhost:3000.
