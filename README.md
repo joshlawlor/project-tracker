@@ -24,6 +24,10 @@ SprintSync is a task-tracking application designed to streamline group project o
 - I can create, update, and track tasks for various projects and sprints.
 - Real-time collaboration allows me to work effectively with team members.
 
+## Figma Design
+
+https://www.figma.com/file/QTb2vbmi18MoRYHvIlrwOt/SprintSpace-Wireframe?type=design&mode=design&t=BlIyZ9b3NsWA7JVe-1
+
 ## Features
 
 - User authentication using Firebase for a secure login process.
