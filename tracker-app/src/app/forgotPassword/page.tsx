@@ -76,7 +76,7 @@ const InputStyler = styled.input`
       border-radius: 10px;
       border: 1px solid rgba(0, 0, 0, 1);
       border-radius: 10px;
-      box-shadow: 0px 4px 4px 0px #bdb5e1;
+      box-shadow: 0px 4px 4px 0px #323333;
       margin-bottom: 25px;
       font-family: "Exo", sans-serif;
       font-weight: 400;

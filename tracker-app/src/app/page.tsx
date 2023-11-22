@@ -32,14 +32,14 @@ export default function Landing() {
         </RegisterButton>
         </Link>
       </ButtonsWrapper>
-      <GoogleWrapper>
+      {/* <GoogleWrapper>
         <GoogleButton>
           <GoogleIcon src='/googleIcon.png' alt="googleIcon" />
           <div>
             <GoogleTitle >Sign in with Google.</GoogleTitle>
           </div>
         </GoogleButton>
-      </GoogleWrapper>
+      </GoogleWrapper> */}
     </LandingWrapper>
   )
 }
